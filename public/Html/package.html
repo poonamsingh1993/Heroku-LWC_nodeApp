@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Opportunity Manager</title>
+
+	<!-- CSS -->
+    <!-- load bootstrap and our own personal stylesheet -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div id="lightning"></div>
+</div> 
+	   <script src="https://curious-goat-175142-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+    <script>
+        function getCookieValue(a) {
+            var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+            return b ? b.pop() : '';
+            }
+        var token = getCookieValue("token"); 
+    $Lightning.use("c:SF_AssignmentApp",    // name of the Lightning app
+        function () {                  // Callback once framework and app loaded
+            $Lightning.createComponent(
+                "c:WrapComponent", // top-level component of your app
+                {},                  // attributes to set on the component when created
+                "lightning",   // the DOM location to insert the component
+                function (cmp) {
+                    // callback when component is created and active on the page
+                }
+            );
+        },
+        'https://curious-goat-175142-dev-ed.lightning.force.com', 
+        token
+    ); 
+    </script> 
+</body>
+</html>
